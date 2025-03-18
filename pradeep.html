@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    
+    <style>
+        h1{
+            text-align: center;
+            background-color: blueviolet;
+            color: black;
+            display: inline-block;
+            margin-left: 350px;
+            
+
+        }
+        h1:hover{
+            background-color: gold;
+            color: black;
+            transform: scale(1.5,1.5);
+            transition: 1s;
+
+        }
+        div{
+            text-align: center;
+        }
+        body{
+            border: groove green 10px;
+            
+            margin-left: 80px;
+            margin-right: 80px;
+            margin-top: 200px;
+            border-radius: 20px;
+        }
+     
+    </style>
+</head>
+<body>
+    <h1>Let's find <i><b>SQUARE</i></b> and <i><b>CUBE</i></b></h1>
+ <div>
+    <script>
+        function square()
+        {
+            var a=document.getElementById("num1").value;
+            document.getElementById("demo").innerHTML=a*a;
+
+        }
+
+        function cube()
+
+        {
+            var b=document.getElementById("num1").value;
+            document.getElementById("demo").innerHTML=b*b*b;
+        }
+        
+        function clr()
+        {
+             document.getElementById("num1").value=" ";
+             document.getElementById("demo").innerHTML=" ";
+
+        }
+    </script>
+     <form>
+        <pp>
+           <input type="text" id="num1" placeholder="Enter your value" >
+        </pp>
+        <div2>
+           <button type="button" onclick="square()">square</button>
+        </div2>
+        <div3>
+           <button type="button" onclick="cube()">Cube</button>
+        </div3>
+        <div4>
+          <button type="button" onclick="clr()">Clear</button>
+        </div4>
+          <p id="demo"></p>
+     </form>
+ </div>
+</body>
+</html>

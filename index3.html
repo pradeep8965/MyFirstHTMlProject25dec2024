@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <title>Form</title>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <style>
+            /* General Styling */
+            body {
+                background-color: #ffffff;
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                color: #333;
+            }
+            
+            form {
+                width: 320px;
+                background-color: #e6f7ff; /* Light blue form background */
+                padding: 25px;
+                border-radius: 16px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                border: 1px solid #b3e5fc;
+            }
+        
+            form h2 {
+                margin-bottom: 20px;
+                color: #007bff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+                text-align: left;
+                color: #555;
+            }
+        
+            input[type="text"], select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #b3e5fc;
+                border-radius: 12px;
+                font-size: 16px;
+                transition: box-shadow 0.3s, border-color 0.3s;
+                background-color: #ffffff;
+            }
+        
+            input[type="text"]:focus, select:focus {
+                border-color: #007bff;
+                outline: none;
+                box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+            }
+
+            select {
+                background-color: #ffffff;
+                appearance: none; /* Removes default arrow */
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23007bff' stroke-width='2' d='M7 7l3 3 3-3'%3E%3C/path%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                background-size: 12px;
+            }
+        
+            input[type="submit"] {
+                width: 100%;
+                padding: 12px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 12px;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
+            }
+        
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+                transform: scale(1.02);
+            }
+
+            input[type="submit"]:active {
+                transform: scale(0.98);
+            }
+
+            /* Add slight animation on hover for inputs */
+            input[type="text"], select {
+                transition: transform 0.2s ease-in-out;
+            }
+
+            input[type="text"]:hover, select:hover {
+                transform: scale(1.02);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <form onsubmit="handleFormSubmit(event)">
+            <h2>
+                <i class="fa-solid fa-user"></i>
+                User Form
+            </h2>
+            <label for="your-name">Your Name</label>
+            <input type="text" id="your-name" name="your-name" placeholder="Enter your name" required>
+            <label for="view-choice">What do you want to see?</label>
+            <select id="view-choice" name="view-choice" required>
+                <option value="">--Select an option--</option>
+                <option value="option1">Madhya Pradesh</option>
+                <option value="option2">India Space</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+        <script>
+            function handleFormSubmit(event) {
+                event.preventDefault(); // Prevent the default form submission
+                const viewChoice = document.getElementById("view-choice").value;
+    
+                if (viewChoice === "option1") {
+                // Redirect to index.html if the first option is selected
+                window.location.href = "index.html";
+                } else if (viewChoice === "option2") {
+                    // Redirect to india-space.html if the second option is selected
+                    window.location.href = "index2.html";
+                } else {
+                    alert("Please select a valid option.");
+                }
+            }
+        </script>
+    </body>
+</html>
