@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 350px;
+            width: 100%;
+        }
+        .screen {
+            height: 60px;
+            font-size: 2rem;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            background: #f3f3f3;
+            border-radius: 5px;
+        }
+        .btn-custom {
+            width: 75px;
+            height: 75px;
+            font-size: 1.5rem;
+            margin: 5px;
+            border-radius: 10px;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #ddd;
+        }
+        .btn-operator {
+            background: #ff9f43;
+            color: white;
+        }
+        .btn-equal {
+            background: #2ed573;
+            color: white;
+        }
+        .btn-clear {
+            background: #ff4757;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator text-center">
+        <input type="text" id="a" class="screen" placeholder="0" readonly>
+        <div class="container">
+            <div class="row">
+                <button class="col btn btn-custom btn-clear" onclick="clr()">AC</button>
+                <button class="col btn btn-custom" onclick="del()">DEL</button>
+                <button class="col btn btn-custom" onclick="pick('%')">%</button>
+                <button class="col btn btn-custom btn-operator" onclick="pick('/')">/</button>
+            </div>
+            <div class="row">
+                <button class="col btn btn-custom" onclick="pick(7)">7</button>
+                <button class="col btn btn-custom" onclick="pick(8)">8</button>
+                <button class="col btn btn-custom" onclick="pick(9)">9</button>
+                <button class="col btn btn-custom btn-operator" onclick="pick('*')">*</button>
+            </div>
+            <div class="row">
+                <button class="col btn btn-custom" onclick="pick(4)">4</button>
+                <button class="col btn btn-custom" onclick="pick(5)">5</button>
+                <button class="col btn btn-custom" onclick="pick(6)">6</button>
+                <button class="col btn btn-custom btn-operator" onclick="pick('-')">-</button>
+            </div>
+            <div class="row">
+                <button class="col btn btn-custom" onclick="pick(1)">1</button>
+                <button class="col btn btn-custom" onclick="pick(2)">2</button>
+                <button class="col btn btn-custom" onclick="pick(3)">3</button>
+                <button class="col btn btn-custom btn-operator" onclick="pick('+')">+</button>
+            </div>
+            <div class="row">
+                <button class="col btn btn-custom" onclick="pick('00')">00</button>
+                <button class="col btn btn-custom" onclick="pick(0)">0</button>
+                <button class="col btn btn-custom" onclick="pick('.')">.</button>
+                <button class="col btn btn-custom btn-equal" onclick="solve()">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+          let clickSound = new Audio("click.mp3");
+            function playSound() {
+                clickSound.currentTime = 0; // Reset sound
+                clickSound.play();
+            }
+
+            function pick(val) {
+                playSound();
+                document.getElementById("a").value += val;
+            }
+
+            function solve() {
+                playSound();
+                try {
+                    document.getElementById("a").value = eval(document.getElementById("a").value);
+                } catch (e) {
+                    alert("Invalid Input");
+                    clr();
+                }
+            }
+
+            function clr() {
+                playSound();
+                document.getElementById("a").value = "";
+            }
+
+            function del() {
+                playSound();
+                let input = document.getElementById("a").value;
+                document.getElementById("a").value = input.substring(0, input.length - 1);
+            }
+
+    </script>
+</body>
+</html>

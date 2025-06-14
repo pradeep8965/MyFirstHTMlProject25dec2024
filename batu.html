@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+  <head>
+    <style>
+      *{
+        font-weight: bold;
+      }
+      input[type="button"]
+      {
+        width:80%;
+        height: 80%;
+        background: transparent;
+        font-size: medium;
+        cursor: pointer;
+        
+      }
+      input:hover{
+        background-color: lightblue;
+      }
+      table{
+        border: slategrey groove 10px;
+        border-radius: 10px;
+        margin: 250px;
+        height: 530px;
+        width:32%;
+        margin-top:2px;
+        margin-left:400px;
+      
+      }
+      body{
+        
+        background-image:"https://upload.wikimedia.org/wikipedia/commons/2/22/1_Nature_1.png";
+        background-size: cover;
+        
+      }
+      #a{
+        width: 300px;
+        height: 30px;
+        border: none;
+        background: transparent;
+        font-size: 40px;
+        text-align: right;
+      }
+      .pp{
+        color:red;
+        
+      }
+      .pp{
+        background-color: blueviolet;
+      }
+      .pp:hover{
+        background-color: brown;
+        color: aliceblue;
+        font-size: 17px;
+        
+      }
+      .ppp{
+        background-color: orangered;
+        color: green;
+      }
+      .ppp:hover{
+        background-color: blue;
+        color: aliceblue;
+        font-size: large;
+      }
+   
+    </style>
+  </head>
+  <body>
+    <script>
+      function pick(val)
+      {
+        document.getElementById("a").value += val;
+      }
+      function solve()
+      {
+        var x=document.getElementById("a").value;
+        var y=eval(x);
+        document.getElementById("a").value=y;
+
+      }
+      
+      function clr()
+      {
+        document.getElementById("a").value = " ";
+      }
+
+
+    </script>
+    <table>
+        <tr>
+          <th colspan="4"><input type ="text" placeholder="0"  id="a"></th>
+        </tr>
+       <tr>
+        <th><input type ="button" value="AC" onclick="clr()"></th>
+        <th><input type ="button" value="DE" onclick="clr()"></th>
+        <th><input type ="button" value="%" onclick="pick('%')"></th>
+        <th><input type ="button" class="pp" value="/" onclick="pick('/')"></th>
+       </tr>
+       <tr>
+        <th><input type ="button" value="7" onclick="pick(7)"></th>
+        <th><input type ="button" value="8" onclick="pick(8)"></th>
+        <th><input type ="button" value="9" onclick="pick(9)"></th>
+        <th><input type ="button" class="pp" value="*" onclick="pick('*')"></th>
+       </tr>
+       <tr>
+        <th><input type ="button" value="4" onclick="pick(4)"></th>
+        <th><input type ="button" value="5" onclick="pick(5)"></th>
+        <th><input type ="button" value="6" onclick="pick(6)"></th>
+        <th><input type ="button" class="pp" value="-" onclick="pick('-')"></th>
+       </tr>
+       <tr>
+        <th><input type ="button" value="1" onclick="pick(1)"></th>
+        <th><input type ="button" value="2" onclick="pick(2)"></th>
+        <th><input type ="button" value="3" onclick="pick(3)"></th>
+        <th><input type ="button" class="pp" value="+" onclick="pick('+')"></th>
+       </tr>
+       <tr>
+        <th><input type ="button" value="00" onclick="pick('00')"></th>
+        <th><input type ="button" value="0" onclick="pick(0)"></th>
+        <th><input type ="button" value="." onclick="pick('.')"></th>
+        <th><input type ="button" class="ppp" value="="  onclick="solve()"></th>
+        </tr>
+    </table>
+
+
+  </body>
+  </html>
+
+
+
+

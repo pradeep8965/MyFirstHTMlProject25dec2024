@@ -1,9 +1,13 @@
 *{
     text-align: center;
+    background-color: antiquewhite;
 }
 h1{
     color: blue;
 }
 p{
     color: brown;
+}
+h2{
+    color:blueviolet;
 }
